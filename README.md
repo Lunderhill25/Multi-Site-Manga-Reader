@@ -13,3 +13,6 @@ The project is to create an application that will allow fans of manga to view ma
 - As a reader I want to be notified of new updates
 - As a translator I want to be acknowledged for my work
 - As a translator I want to recieve revenue for my work
+
+## **<u>Supervisor</u>**
+Kimberly Tam
