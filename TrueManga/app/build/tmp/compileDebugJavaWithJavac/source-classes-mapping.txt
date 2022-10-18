@@ -1,0 +1,2 @@
+com/example/truemanga/BuildConfig.java
+ com.example.truemanga.BuildConfig
