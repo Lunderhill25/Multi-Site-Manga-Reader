@@ -9,7 +9,10 @@
         <entry key="..\:/Uni_Stuff/Github_Stuff/COMP3000/TrueManga/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Uni_Stuff/Github_Stuff/COMP3000/TrueManga/app/src/main/res/layout/fragment_favourites.xml" value="0.1" />
         <entry key="..\:/Uni_Stuff/Github_Stuff/COMP3000/TrueManga/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
-        <entry key="..\:/Uni_Stuff/Github_Stuff/COMP3000/TrueManga/app/src/main/res/layout/fragment_sites.xml" value="0.11203703703703703" />
+        <entry key="..\:/Uni_Stuff/Github_Stuff/COMP3000/TrueManga/app/src/main/res/layout/fragment_sites.xml" value="0.25" />
+        <entry key="..\:/Uni_Stuff/Github_Stuff/COMP3000/TrueManga/app/src/main/res/layout/settings_activity.xml" value="0.1762917933130699" />
+        <entry key="..\:/Uni_Stuff/Github_Stuff/COMP3000/TrueManga/app/src/main/res/menu/settings_menu.xml" value="0.24444444444444444" />
+        <entry key="..\:/Uni_Stuff/Github_Stuff/COMP3000/TrueManga/app/src/main/res/xml/root_preferences.xml" value="0.1762917933130699" />
       </map>
     </option>
   </component>
