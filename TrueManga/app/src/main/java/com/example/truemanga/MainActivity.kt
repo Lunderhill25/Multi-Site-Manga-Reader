@@ -1,9 +1,11 @@
 package com.example.truemanga
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.truemanga.fragments.FavouritesFragment
 import com.example.truemanga.fragments.SettingsFragment
@@ -16,17 +18,24 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        settings()
         setUpTabs()
 
     }
 
-
-
+    private fun settings(){
+        val stateSwitch = findViewById<SwitchMaterial>(R.id.theme_switch);
+        stateSwitch?.setOnCheckedChangeListener({ _ , isChecked -> val theme = if (isChecked) "Dark Mode" else "LightMode"
+            stateSwitch.setText(theme)
+            if(isChecked){AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)}
+            else{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
+        })
+    }
 
     private fun setUpTabs(){
         val adapter = ViewPagerAdapter(supportFragmentManager)
@@ -43,8 +52,6 @@ class MainActivity : AppCompatActivity() {
         tabLayout.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_web_24)
         tabLayout.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_star_24)
         tabLayout.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_settings_24)
-
-
 
     }
 
