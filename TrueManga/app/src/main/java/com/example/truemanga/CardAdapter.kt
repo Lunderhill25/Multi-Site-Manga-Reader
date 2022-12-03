@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.truemanga.Manga
+import com.example.truemanga.databinding.SiteListItemBinding
 
 class CardAdapter(private val manga: List<Manga>)
     : RecyclerView.Adapter<CardViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val from = LayoutInflater.from(parent.context)
-        val binding = CardCellBinding.inflate(from, parent,false)
+        val binding = SiteListItemBinding.inflate(from, parent,false)
         return CardViewHolder(binding)
     }
 
@@ -19,7 +20,5 @@ class CardAdapter(private val manga: List<Manga>)
         holder.bindManga(manga[position])
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = manga.size
 }

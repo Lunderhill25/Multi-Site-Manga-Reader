@@ -10,22 +10,23 @@ import com.example.truemanga.CardAdapter
 import com.example.truemanga.Manga
 import com.example.truemanga.R
 import com.example.truemanga.databinding.ActivityMainBinding
+import com.example.truemanga.databinding.FragmentSitesBinding
 import com.example.truemanga.mangaList
 
 
 class SitesFragment : Fragment() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: FragmentSitesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = FragmentSitesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         gatherManga()
 
-        val mainActivity = this
+        val fragment = this
+        val recyclerView = findViewById<recyclerview>(R.id.recyclerView)
         binding.recyclerView.apply{
             layoutManager = GridLayoutManager(applicationContext,3)
             adapter= CardAdapter(mangaList)

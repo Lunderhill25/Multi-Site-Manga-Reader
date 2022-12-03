@@ -2,15 +2,16 @@ package com.example.truemanga
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.truemanga.databinding.FragmentSettingsBinding
+import com.example.truemanga.databinding.SiteListItemBinding
 
 class CardViewHolder(
-    private val cardCellBinding: CardCellBinding
-) : RecyclerView.ViewHolder(cardCellBinding.root)
+    private val siteListItemBinding: SiteListItemBinding
+) : RecyclerView.ViewHolder(siteListItemBinding.root)
 {
     fun bindManga(manga: Manga){
-        cardCellBinding.cover.setImageResource(manga.cover)
-        cardCellBinding.title.text = manga.title
-        cardCellBinding.author.text = manga.author
-        cardCellBinding.site.text = manga.site
+        siteListItemBinding.cover.setImageResource(manga.cover)
+        siteListItemBinding.title.text = manga.title
+        siteListItemBinding.author.text = manga.author
+        //siteListItemBinding.site.text = manga.site
     }
 }
