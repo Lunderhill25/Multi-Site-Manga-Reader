@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.truemanga.databinding.ActivityMainBinding
 import com.example.truemanga.fragments.FavouritesFragment
 import com.example.truemanga.fragments.SettingsFragment
 import com.example.truemanga.fragments.SitesFragment
@@ -17,24 +19,33 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 
 class MainActivity : AppCompatActivity() {
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
-        settings()
+        theme()
         setUpTabs()
+
+
 
     }
 
-    private fun settings(){
+    private fun theme(){
         val stateSwitch = findViewById<SwitchMaterial>(R.id.theme_switch);
-        stateSwitch?.setOnCheckedChangeListener({ _ , isChecked -> val theme = if (isChecked) "Dark Mode" else "LightMode"
+        stateSwitch?.setOnCheckedChangeListener { _, isChecked ->
+            val theme = if (isChecked) "Dark Mode" else "Light Mode"
             stateSwitch.setText(theme)
-            if(isChecked){AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)}
-            else{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
-        })
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
     }
 
     private fun setUpTabs(){
@@ -54,6 +65,8 @@ class MainActivity : AppCompatActivity() {
         tabLayout.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_settings_24)
 
     }
+
+
 
 
 
