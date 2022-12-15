@@ -25,12 +25,12 @@ class SitesFragment : Fragment(), CoverClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //val fragment = this
+        val fragment = this
 
         _binding = FragmentSitesBinding.inflate(layoutInflater)
         binding.recyclerView.apply{
                 layoutManager = GridLayoutManager(activity,2)
-                adapter= CardAdapter(mangaList)
+                adapter= CardAdapter(mangaList, fragment)
         }
         return binding.root
 
@@ -39,6 +39,14 @@ class SitesFragment : Fragment(), CoverClickListener {
     override fun onDestroyView(){
         super.onDestroyView()
         _binding = null
+        mangaList.clear()
+    }
+
+    override fun onClick(manga: Manga) {
+        val intent = android.content.Intent(activity, DetailsActivity::class.java)
+        intent.putExtra(MANGA_ID_EXTRA, manga.id)
+        startActivity(intent)
+
     }
 
     //Currently hardcoded for testing
@@ -70,8 +78,6 @@ class SitesFragment : Fragment(), CoverClickListener {
 
     }
 
-    override fun onClick(manga: Manga) {
-        //val intent = Intent
-    }
+
 
 }

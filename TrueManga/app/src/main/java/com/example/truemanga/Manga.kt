@@ -2,6 +2,8 @@ package com.example.truemanga
 
 var mangaList = mutableListOf<Manga>()
 
+val MANGA_ID_EXTRA = "mangaExtra"
+
 class Manga(
     var cover: Int,
     var author: String,

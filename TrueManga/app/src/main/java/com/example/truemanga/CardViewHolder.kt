@@ -5,7 +5,8 @@ import com.example.truemanga.databinding.FragmentSettingsBinding
 import com.example.truemanga.databinding.SiteListItemBinding
 
 class CardViewHolder(
-    private val siteListItemBinding: SiteListItemBinding
+    private val siteListItemBinding: SiteListItemBinding,
+    private val clickListener: CoverClickListener
 ) : RecyclerView.ViewHolder(siteListItemBinding.root)
 {
     fun bindManga(manga: Manga){
@@ -13,5 +14,9 @@ class CardViewHolder(
         siteListItemBinding.title.text = manga.title
         siteListItemBinding.author.text = manga.author
         siteListItemBinding.site.text = manga.site
+
+        siteListItemBinding.cardView.setOnClickListener{
+            clickListener.onClick(manga)
+        }
     }
 }

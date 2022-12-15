@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.truemanga.Manga
 import com.example.truemanga.databinding.SiteListItemBinding
 
-class CardAdapter(private val manga: List<Manga>)
+class CardAdapter(private val manga: List<Manga>,
+                  private val clickListener: CoverClickListener)
     : RecyclerView.Adapter<CardViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val from = LayoutInflater.from(parent.context)
         val binding = SiteListItemBinding.inflate(from, parent,false)
-        return CardViewHolder(binding)
+        return CardViewHolder(binding, clickListener)
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
