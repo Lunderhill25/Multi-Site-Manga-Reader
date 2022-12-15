@@ -21,6 +21,8 @@ class DetailsActivity : AppCompatActivity() {
             binding.author.text = manga.author
             binding.description.text = manga.description
             binding.site.text = manga.site
+            binding.siteButton.text = "Go to "+manga.site
+
         }
     }
 
