@@ -12,6 +12,6 @@ class CardViewHolder(
         siteListItemBinding.cover.setImageResource(manga.cover)
         siteListItemBinding.title.text = manga.title
         siteListItemBinding.author.text = manga.author
-        //siteListItemBinding.site.text = manga.site
+        siteListItemBinding.site.text = manga.site
     }
 }

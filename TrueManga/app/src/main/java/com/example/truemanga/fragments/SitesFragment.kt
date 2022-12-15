@@ -6,52 +6,72 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.truemanga.CardAdapter
-import com.example.truemanga.Manga
-import com.example.truemanga.R
-import com.example.truemanga.databinding.ActivityMainBinding
+import com.example.truemanga.*
 import com.example.truemanga.databinding.FragmentSitesBinding
-import com.example.truemanga.mangaList
 
 
-class SitesFragment : Fragment() {
+class SitesFragment : Fragment(), CoverClickListener {
 
-    private lateinit var binding: FragmentSitesBinding
+    private var _binding: FragmentSitesBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentSitesBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         gatherManga()
 
-        val fragment = this
-        val recyclerView = findViewById<recyclerview>(R.id.recyclerView)
-        binding.recyclerView.apply{
-            layoutManager = GridLayoutManager(applicationContext,3)
-            adapter= CardAdapter(mangaList)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sites, container, false)
+        //val fragment = this
+
+        _binding = FragmentSitesBinding.inflate(layoutInflater)
+        binding.recyclerView.apply{
+                layoutManager = GridLayoutManager(activity,2)
+                adapter= CardAdapter(mangaList)
+        }
+        return binding.root
+
+    }
+
+    override fun onDestroyView(){
+        super.onDestroyView()
+        _binding = null
     }
 
     //Currently hardcoded for testing
     private fun gatherManga(){
         val manga1 = Manga(
-            R.drawable.slc,
+            R.drawable.sololevelingcover,
             "Chu-Gong",
             "Solo-Leveling",
-            "Webnovel.com",
+            "placeholder",
             "In a world where hunters, humans who possess magical abilities, must battle deadly monsters to protect mankind from certain annihilation, a notoriously weak hunter named Sung Jinwoo finds himself in a seemingly endless struggle for survival. One day, after narrowly surviving an overwhelmingly powerful dungeon that nearly wipes out his entire party, a mysterious program called the System chooses him as its sole player and in turn, gives him the extremely rare ability to level up in strength, possibly beyond any known limits. Follow Jinwoo's journey as he fights against all kinds of enemies, both man and monster, to discover the secrets of the dungeons and the true source of his powers."
         )
         mangaList.add(manga1)
+        val manga2 = Manga(
+            R.drawable.berserkcover,
+            "Kentaro Miura",
+            "Berserk",
+            "placeholder",
+            "no synopsis"
+        )
+        mangaList.add(manga2)
+        val manga3 = Manga(
+            R.drawable.chainsawmancover,
+            "Tatsuki Fujimoto",
+            "Chainsaw Man",
+            "placeholder",
+            "Following a betrayal, a young man left for the dead is reborn as a powerful devil-human hybrid after merging with his pet devil and is soon enlisted into an organization dedicated to hunting devils."
+        )
+        mangaList.add(manga3)
 
+    }
+
+    override fun onClick(manga: Manga) {
+        //val intent = Intent
     }
 
 }
