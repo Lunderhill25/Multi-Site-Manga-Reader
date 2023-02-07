@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(SitesFragment(),"")
         adapter.addFragment(FavouritesFragment(),"")
-        adapter.addFragment(SettingsFragment(),"")
+        //adapter.addFragment(SettingsFragment(),"")
 
         val viewPager = findViewById<androidx.viewpager.widget.ViewPager>(R.id.view_pager)
         val tabLayout = findViewById<com.google.android.material.tabs.TabLayout>(R.id.tab_layout)
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         tabLayout.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_web_24)
         tabLayout.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_star_24)
-        tabLayout.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_settings_24)
+        //tabLayout.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_settings_24)
 
     }
 

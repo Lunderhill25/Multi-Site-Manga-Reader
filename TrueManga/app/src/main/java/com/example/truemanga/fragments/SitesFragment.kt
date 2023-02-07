@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.truemanga.*
 import com.example.truemanga.databinding.FragmentSitesBinding
+import com.example.truemanga.fragments.adapters.CardAdapter
 
 
 class SitesFragment : Fragment(), CoverClickListener {
@@ -18,7 +19,6 @@ class SitesFragment : Fragment(), CoverClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if(mangaList.isEmpty()){gatherManga()}
-
 
     }
 
@@ -91,7 +91,14 @@ class SitesFragment : Fragment(), CoverClickListener {
             "A young man with his brush plunges into a chaotic world and lights up the heavens. In a world where cultivators are paramount, will the vermilion bird swallow the dragon, or will the dragon transcend beyond all else?!"
         )
         mangaList.add(manga5)
+        orderManga()
 
+    }
+
+    private fun orderManga(){
+        var temp = mutableListOf<Manga>()
+        var sortedList = mangaList.sortedBy {manga -> manga.title }
+        mangaList = sortedList.toMutableList()
     }
 
 

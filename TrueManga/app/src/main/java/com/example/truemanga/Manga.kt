@@ -1,6 +1,7 @@
 package com.example.truemanga
 
 var mangaList = mutableListOf<Manga>()
+var favouriteList = mutableListOf<Manga>()
 
 val MANGA_ID_EXTRA = "mangaExtra"
 

@@ -1,14 +1,17 @@
-package com.example.truemanga
+package com.example.truemanga.fragments.adapters
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.truemanga.CardViewHolder
+import com.example.truemanga.CoverClickListener
 import com.example.truemanga.Manga
 import com.example.truemanga.databinding.SiteListItemBinding
 
 class CardAdapter(private val manga: List<Manga>,
-                  private val clickListener: CoverClickListener)
+                  private val clickListener: CoverClickListener
+)
     : RecyclerView.Adapter<CardViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
