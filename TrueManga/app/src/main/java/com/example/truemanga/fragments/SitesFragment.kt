@@ -55,7 +55,8 @@ class SitesFragment : Fragment(), CoverClickListener {
             R.drawable.berserkcover,
             "Kentaro Miura",
             "Berserk",
-            "placeholder",
+            "mangasee123",
+            "https://mangasee123.com/manga/Berserk",
             "no synopsis"
         )
         mangaList.add(manga1)
@@ -63,7 +64,8 @@ class SitesFragment : Fragment(), CoverClickListener {
             R.drawable.chainsawmancover,
             "Tatsuki Fujimoto",
             "Chainsaw Man",
-            "placeholder",
+            "chainsawman-manga",
+            "https://chainsawman-manga.online",
             "Following a betrayal, a young man left for the dead is reborn as a powerful devil-human hybrid after merging with his pet devil and is soon enlisted into an organization dedicated to hunting devils."
         )
         mangaList.add(manga2)
@@ -71,7 +73,8 @@ class SitesFragment : Fragment(), CoverClickListener {
             R.drawable.sololevelingcover,
             "Chu-Gong",
             "Solo-Leveling",
-            "placeholder",
+            "",
+            "",
             "In a world where hunters, humans who possess magical abilities, must battle deadly monsters to protect mankind from certain annihilation, a notoriously weak hunter named Sung Jinwoo finds himself in a seemingly endless struggle for survival. One day, after narrowly surviving an overwhelmingly powerful dungeon that nearly wipes out his entire party, a mysterious program called the System chooses him as its sole player and in turn, gives him the extremely rare ability to level up in strength, possibly beyond any known limits. Follow Jinwoo's journey as he fights against all kinds of enemies, both man and monster, to discover the secrets of the dungeons and the true source of his powers."
         )
         mangaList.add(manga3)
@@ -79,7 +82,8 @@ class SitesFragment : Fragment(), CoverClickListener {
             R.drawable.reincarnatedasaslimecover,
             "Fuse",
             "That time I was reincarnated as a slime",
-            "placeholder",
+            "",
+            "",
             "Corporate worker Mikami Satoru is stabbed by a random killer, and is reborn to an alternate world. But he turns out to be reborn a slime. Thrown into this new world with the name Rimuru, he begins his quest to create a world that's welcoming to all races."
         )
         mangaList.add(manga4)
@@ -87,7 +91,8 @@ class SitesFragment : Fragment(), CoverClickListener {
             R.drawable.yuanzuncover,
             "Heavenly Silkworm Potato",
             "Yuan Zun",
-            "placeholder",
+            "",
+            "",
             "A young man with his brush plunges into a chaotic world and lights up the heavens. In a world where cultivators are paramount, will the vermilion bird swallow the dragon, or will the dragon transcend beyond all else?!"
         )
         mangaList.add(manga5)

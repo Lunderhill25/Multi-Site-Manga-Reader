@@ -5,11 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.truemanga.*
 import com.example.truemanga.databinding.FragmentFavouritesBinding
 import com.example.truemanga.fragments.adapters.CardAdapter
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 
 class FavouritesFragment : Fragment(), CoverClickListener {
 
@@ -18,7 +22,7 @@ class FavouritesFragment : Fragment(), CoverClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        orderFavourites()
+
     }
 
     override fun onCreateView(
@@ -35,16 +39,24 @@ class FavouritesFragment : Fragment(), CoverClickListener {
         return binding.root
     }
 
-
     override fun onResume() {
         super.onResume()
+
+        orderFavourites()
+        sortFavourites()
+
         if(favouriteList.isEmpty()){
             Toast.makeText(this.context,"No Favourites Found", Toast.LENGTH_SHORT).show()
         }
         else{
-            sortFavourites()
-        }
+            //requireActivity().supportFragmentManager.beginTransaction().detach(this).attach(this).commit();
+            //requireActivity().supportFragmentManager.beginTransaction().replace(requireActivity().view_pager.id,this).commit();
 
+            Snackbar.make(requireView(),"Favourites May Not Be Up To Date",Snackbar.LENGTH_LONG
+            ).setAction("Refresh"){
+
+            }.show()
+        }
     }
 
     override fun onDestroyView(){
@@ -68,6 +80,7 @@ class FavouritesFragment : Fragment(), CoverClickListener {
         var checkedList = favouriteList.distinct()
         favouriteList = checkedList.toMutableList()
     }
+
 
    
 }

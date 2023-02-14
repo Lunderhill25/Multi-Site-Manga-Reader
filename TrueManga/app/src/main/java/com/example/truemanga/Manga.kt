@@ -10,6 +10,7 @@ class Manga(
     var author: String,
     var title: String,
     var site: String,
+    var link: String,
     var description: String,
     var id: Int? = mangaList.size
 )

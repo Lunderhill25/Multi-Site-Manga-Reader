@@ -1,9 +1,13 @@
 package com.example.truemanga
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.webkit.URLUtil
 import com.example.truemanga.databinding.ActivityDetailsBinding
 import android.widget.Toast
+import com.example.truemanga.fragments.FavouritesFragment
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -25,7 +29,6 @@ class DetailsActivity : AppCompatActivity() {
             binding.siteButton.text = "Go to "+manga.site
 
             binding.favouriteButton.setOnClickListener{
-                //Toast.makeText(this,"clicked favourites",Toast.LENGTH_SHORT).show()
                 if(favouriteList.contains(manga)){
                     Toast.makeText(this,"Removed From Favourites",Toast.LENGTH_SHORT).show()
                     favouriteList.remove(manga)
@@ -35,11 +38,19 @@ class DetailsActivity : AppCompatActivity() {
                     favouriteList.add(manga)
                 }
             }
+            if (URLUtil.isValidUrl(manga.link)){
+                binding.siteButton.setOnClickListener {
+                    val openURL = Intent(Intent.ACTION_VIEW)
+                    openURL.data = Uri.parse(manga?.link)
+                    startActivity(openURL)
+                }
+            }
+            else {
+                Toast.makeText(this, "Site Not Found", Toast.LENGTH_SHORT).show()
+            }
 
         }
-        binding.siteButton.setOnClickListener{
-            Toast.makeText(this,"clicked site button",Toast.LENGTH_SHORT).show()
-        }
+
 
 
     }
