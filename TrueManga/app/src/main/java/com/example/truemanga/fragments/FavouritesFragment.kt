@@ -42,21 +42,20 @@ class FavouritesFragment : Fragment(), CoverClickListener {
     override fun onResume() {
         super.onResume()
 
+        val fragment = this
+
         orderFavourites()
         sortFavourites()
+
+        binding.recyclerView.apply{
+            layoutManager = GridLayoutManager(activity,2)
+            adapter= CardAdapter(favouriteList, fragment)
+        }
 
         if(favouriteList.isEmpty()){
             Toast.makeText(this.context,"No Favourites Found", Toast.LENGTH_SHORT).show()
         }
-        else{
-            //requireActivity().supportFragmentManager.beginTransaction().detach(this).attach(this).commit();
-            //requireActivity().supportFragmentManager.beginTransaction().replace(requireActivity().view_pager.id,this).commit();
 
-            Snackbar.make(requireView(),"Favourites May Not Be Up To Date",Snackbar.LENGTH_LONG
-            ).setAction("Refresh"){
-
-            }.show()
-        }
     }
 
     override fun onDestroyView(){
@@ -79,6 +78,10 @@ class FavouritesFragment : Fragment(), CoverClickListener {
     private fun sortFavourites(){
         var checkedList = favouriteList.distinct()
         favouriteList = checkedList.toMutableList()
+    }
+
+    public fun saveFavourites(){
+
     }
 
 
